@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {PropsWithChildren} from 'react';
 
-const Main = ({children}: React.PropsWithChildren) => {
+const Main = ({children}: PropsWithChildren) => {
     return (
         <main>
             {children}
