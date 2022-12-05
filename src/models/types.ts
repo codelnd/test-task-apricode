@@ -1,20 +1,22 @@
-import React, {PropsWithChildren} from "react";
+import React, { PropsWithChildren } from "react";
 
 export interface IAuthProps {
-    children: PropsWithChildren
-    title: string
-    name: string
-    buttonName: string
-    question: string
-    path: string
-    pathName: string
+  children: PropsWithChildren;
+  title: string;
+  name: string;
+  buttonName: string;
+  question: string;
+  path: string;
+  pathName: string;
 }
 
-export interface IInputProps<T, N> {
-    labelText: T
-    type: T
-    name: T
-    minLength: N
-    maxLength: N
-    placeholder: T
+export interface IInputProps {
+  labelText: string;
+  type: string;
+  name: string;
+  minLength: number;
+  maxLength: number;
+  placeholder: string;
+  onChange?: any;
+  value?: any;
 }

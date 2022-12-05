@@ -9,7 +9,9 @@ const Input = ({
   minLength,
   maxLength,
   placeholder,
-}: IInputProps<string, number>) => {
+  onChange,
+  value,
+}: IInputProps) => {
   return (
     <label>
       <p className={`auth__label`}>{labelText}</p>
@@ -21,6 +23,8 @@ const Input = ({
         minLength={minLength}
         maxLength={maxLength}
         placeholder={placeholder}
+        onChange={onChange}
+        value={value}
       />
     </label>
   );
