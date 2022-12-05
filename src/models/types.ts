@@ -14,8 +14,6 @@ export interface IInputProps {
   labelText: string;
   type: string;
   name: string;
-  minLength: number;
-  maxLength: number;
   placeholder: string;
   onChange?: any;
   value?: any;

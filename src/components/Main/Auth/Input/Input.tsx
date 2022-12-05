@@ -6,8 +6,6 @@ const Input = ({
   labelText,
   type,
   name,
-  minLength,
-  maxLength,
   placeholder,
   onChange,
   value,
@@ -16,12 +14,10 @@ const Input = ({
     <label>
       <p className={`auth__label`}>{labelText}</p>
       <input
+        required
         type={type}
         name={name}
         className={`auth__input`}
-        required
-        minLength={minLength}
-        maxLength={maxLength}
         placeholder={placeholder}
         onChange={onChange}
         value={value}
