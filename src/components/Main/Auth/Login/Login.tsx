@@ -3,7 +3,8 @@ import Auth from "../Auth";
 import Input from "../Input/Input";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
-const Login = () => {
+const Login = ({ loggedIn, setLoggedIn }: any) => {
+  console.log(loggedIn);
   return (
     <Auth
       title="Рады видеть!"
