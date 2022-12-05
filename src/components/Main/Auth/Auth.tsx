@@ -11,6 +11,7 @@ const Auth = ({children, title, name, buttonName, question, path, pathName}: Pro
                 className={`auth__form auth__form_${name}`}
                 name={name}
                 id={name}
+                autoComplete="off"
             >
                 {children}
             </form>

@@ -9,3 +9,12 @@ export interface IAuthProps {
     path: string
     pathName: string
 }
+
+export interface IInputProps<T, N> {
+    labelText: T
+    type: T
+    name: T
+    minLength: N
+    maxLength: N
+    placeholder: T
+}
