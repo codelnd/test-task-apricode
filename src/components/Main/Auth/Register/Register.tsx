@@ -23,6 +23,7 @@ const Register = () => {
       question="Уже зарегистрированы?"
       pathName="Войти"
       path="/signin"
+      registerData={registerData}
     >
       <Input
         labelText="E-mail"

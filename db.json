@@ -1,3 +1,21 @@
 {
-  "users": []
+  "users": [
+    {
+      "email": "ff@ya.tu",
+      "password": "$2a$10$ItHmzU7jSr31ioGQQ470wuTrsdiylb.qEE8vShzwUXUrIiP5H5Vm6",
+      "id": 1
+    },
+    {
+      "email": "Den@ya.ru",
+      "password": "$2a$10$8bXXvdNUq.tjnNTCnriGJeJnGdrcPBudexEsuCqP7YUwxdmdCAkP2",
+      "todos": [],
+      "id": 2
+    },
+    {
+      "email": "Den2@ya.ru",
+      "password": "$2a$10$jdbvO2QfcG2eiFdg7UusHeFWtXAai3a2fVDNSjA73Qj0XcO7s/PCW",
+      "todos": [],
+      "id": 3
+    }
+  ]
 }

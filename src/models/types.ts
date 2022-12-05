@@ -8,6 +8,8 @@ export interface IAuthProps {
   question: string;
   path: string;
   pathName: string;
+  registerData?: any;
+  loginData?: any;
 }
 
 export interface IInputProps {

@@ -1,7 +1,8 @@
 import React, { PropsWithChildren } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IAuthProps } from "../../../models/types";
 import "./Auth.scss";
+import axios from "axios";
 
 const Auth = ({
   children,
@@ -11,15 +12,34 @@ const Auth = ({
   question,
   path,
   pathName,
+  registerData,
+  loginData,
 }: PropsWithChildren<IAuthProps>) => {
-  const handleSubmitLogin = (e: React.ChangeEvent) => {
+  const navigate = useNavigate();
+
+  const handleSubmitLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    //Передать loginData
+    axios
+      .post("http://localhost:3000/login", {
+        email: loginData.email,
+        password: loginData.password,
+      })
+      .then((res) => {
+        navigate("/");
+      });
   };
 
-  const handleSubmitRegister = (e: React.ChangeEvent) => {
+  const handleSubmitRegister = (e: React.FormEvent) => {
     e.preventDefault();
-    //Передать registerData
+    axios
+      .post("http://localhost:3000/register", {
+        email: registerData.email,
+        password: registerData.password,
+        todos: [],
+      })
+      .then((res) => {
+        navigate("/");
+      });
   };
 
   return (
@@ -30,6 +50,7 @@ const Auth = ({
         name={name}
         id={name}
         autoComplete="off"
+        onSubmit={name === "login" ? handleSubmitLogin : handleSubmitRegister}
       >
         {children}
       </form>

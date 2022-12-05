@@ -23,6 +23,7 @@ const Login = () => {
       question="Ещё не зарегистрированы?"
       pathName="Регистрация"
       path="/signup"
+      loginData={loginData}
     >
       <Input
         labelText="E-mail"
