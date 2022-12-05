@@ -4,13 +4,13 @@ import Input from "../Input/Input";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import useInput from "../../../../hooks/useInput";
 
-const Login = ({ loggedIn, setLoggedIn }: any) => {
-  const email = useInput("");
+const Login = () => {
+  const login = useInput("");
   const password = useInput("");
 
   const loginData = {
     // @ts-ignore
-    [email.input.name]: email.value,
+    [login.input.name]: login.value,
     // @ts-ignore
     [password.input.name]: password.value,
   };
@@ -25,14 +25,14 @@ const Login = ({ loggedIn, setLoggedIn }: any) => {
       path="/signup"
     >
       <Input
-        labelText="E-mail"
-        type="email"
-        name="email"
-        minLength={4}
-        maxLength={16}
-        placeholder="Введите e-mail"
-        onChange={(e: React.ChangeEvent) => email.onChange(e)}
-        value={email.value}
+        labelText="Логин"
+        type="text"
+        name="login"
+        minLength={2}
+        maxLength={30}
+        placeholder="Введите логин"
+        onChange={(e: React.ChangeEvent) => login.onChange(e)}
+        value={login.value}
       />
       <ErrorMessage />
       <Input

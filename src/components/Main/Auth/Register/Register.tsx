@@ -5,15 +5,12 @@ import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import useInput from "../../../../hooks/useInput";
 
 const Register = () => {
-  const username = useInput("");
-  const email = useInput("");
+  const login = useInput("");
   const password = useInput("");
 
   const registerData = {
     // @ts-ignore
-    [username.input.name]: username.value,
-    // @ts-ignore
-    [email.input.name]: email.value,
+    [login.input.name]: login.value,
     // @ts-ignore
     [password.input.name]: password.value,
   };
@@ -28,25 +25,14 @@ const Register = () => {
       path="/signin"
     >
       <Input
-        labelText="Имя"
+        labelText="Логин"
         type="text"
-        name="username"
+        name="login"
         minLength={2}
         maxLength={30}
-        placeholder="Как Вас зовут?"
-        onChange={(e: React.ChangeEvent) => username.onChange(e)}
-        value={username.value}
-      />
-      <ErrorMessage />
-      <Input
-        labelText="E-mail"
-        type="email"
-        name="email"
-        minLength={4}
-        maxLength={16}
-        placeholder="Введите e-mail"
-        onChange={(e: React.ChangeEvent) => email.onChange(e)}
-        value={email.value}
+        placeholder="Введите логин"
+        onChange={(e: React.ChangeEvent) => login.onChange(e)}
+        value={login.value}
       />
       <ErrorMessage />
       <Input

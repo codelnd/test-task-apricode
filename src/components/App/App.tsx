@@ -10,7 +10,6 @@ import Main from "../Main/Main";
 
 function App() {
   const location = useLocation();
-  const [loggedIn, setLoggedIn] = useState(false);
 
   return (
     <div className="page">
@@ -18,10 +17,7 @@ function App() {
       <Main>
         <Routes>
           <Route path="/" element={<TodoList />} />
-          <Route
-            path="/signin"
-            element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} />}
-          />
+          <Route path="/signin" element={<Login />} />
           <Route path="/signup" element={<Register />} />
         </Routes>
       </Main>

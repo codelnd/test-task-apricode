@@ -12,6 +12,16 @@ const Auth = ({
   path,
   pathName,
 }: PropsWithChildren<IAuthProps>) => {
+  const handleSubmitLogin = (e: React.ChangeEvent) => {
+    e.preventDefault();
+    //Передать loginData
+  };
+
+  const handleSubmitRegister = (e: React.ChangeEvent) => {
+    e.preventDefault();
+    //Передать registerData
+  };
+
   return (
     <section className="auth">
       <h2 className="auth__title">{title}</h2>
