@@ -1,6 +1,7 @@
 import React from "react";
 import Auth from "../Auth";
 import Input from "../Input/Input";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
 const Register = () => {
   return (
@@ -20,6 +21,7 @@ const Register = () => {
         maxLength={30}
         placeholder="Как Вас зовут?"
       />
+      <ErrorMessage />
       <Input
         labelText="E-mail"
         type="email"
@@ -28,6 +30,7 @@ const Register = () => {
         maxLength={16}
         placeholder="Введите e-mail"
       />
+      <ErrorMessage />
       <Input
         labelText="Пароль"
         type="password"
@@ -36,6 +39,7 @@ const Register = () => {
         maxLength={10}
         placeholder="Введите пароль"
       />
+      <ErrorMessage />
     </Auth>
   );
 };

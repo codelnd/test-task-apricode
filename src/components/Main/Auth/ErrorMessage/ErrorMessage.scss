@@ -1,0 +1,13 @@
+.auth__error-message {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #FF4062;
+  transition: opacity 0.1s linear;
+  margin-top: 6px;
+  opacity: 0;
+}
+
+.auth__error-message_visible {
+  opacity: 1;
+}
