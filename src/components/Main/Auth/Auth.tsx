@@ -1,6 +1,7 @@
 import React, {PropsWithChildren} from 'react';
 import {Link} from "react-router-dom";
 import {IAuthProps} from "../../../models/types";
+import "./Auth.scss"
 
 const Auth = ({children, title, name, buttonName, question, path, pathName}: PropsWithChildren<IAuthProps>) => {
     return (
@@ -14,7 +15,7 @@ const Auth = ({children, title, name, buttonName, question, path, pathName}: Pro
                 {children}
             </form>
             <button
-                className={`auth__button auth__button_disabled`}
+                className={`auth__button`}
                 type="submit"
                 form={name}
             >
