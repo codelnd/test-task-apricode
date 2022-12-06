@@ -1,3 +1,5 @@
+@import "../../../sass/abstracts/variables";
+
 .auth {
   max-width: 396px;
   margin: auto;
@@ -5,10 +7,10 @@
 }
 
 .auth__title {
-  font-weight: 500;
-  font-size: 24px;
+  font-weight: $fontMedium;
+  font-size: $titleFontSize;
   line-height: 29px;
-  color: #000;
+  color: $textColor;
   margin: 40px 0 0;
 }
 
@@ -25,13 +27,13 @@
   outline: none;
   padding: 0;
   cursor: pointer;
-  background: #000000;
+  background: $backgroundColorB;
   border-radius: 3px;
-  font-weight: 500;
+  font-weight: $fontMedium;
   font-size: 14px;
   line-height: 17px;
   text-align: center;
-  color: #FFFFFF;
+  color: $buttonTextColor;
   width: 100%;
   height: 45px;
   transition: all 0.15s ease-in;
@@ -44,9 +46,9 @@
   color: #a0a0a0;
 }
 
-/*.auth__button:hover {*/
-/*    box-shadow: 4px 4px 7px -4px rgba(0, 0, 0, 0.75);*/
-/*}*/
+.auth__button:hover {
+   box-shadow: 4px 4px 7px -4px rgba(0, 0, 0, 0.75);
+}
 
 .redirect {
   margin-top: 16px;

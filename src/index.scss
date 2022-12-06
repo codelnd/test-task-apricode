@@ -1,10 +1,11 @@
 @import "normalize.css";
 @import "sass/base/fonts";
+@import "sass/abstracts/variables";
 
 .page {
   margin: 0 auto;
   font-family: "Inter", Arial, sans-serif;
-  background: #fff;
+  background: $backgroundColor;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
