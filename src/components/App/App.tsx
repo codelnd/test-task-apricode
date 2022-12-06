@@ -9,8 +9,9 @@ import Register from "../Main/Auth/Register/Register";
 import Main from "../Main/Main";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import { userStore } from "../../store/user";
+import { observer } from "mobx-react-lite";
 
-function App() {
+const App = observer(() => {
   useEffect(() => {
     userStore.addUser(
       JSON.parse(localStorage.getItem("currentUser") as string)
@@ -37,6 +38,6 @@ function App() {
       <Footer />
     </div>
   );
-}
+});
 
 export default App;

@@ -2,9 +2,9 @@ import React, { PropsWithChildren, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { IAuthProps } from "../../../models/types";
 import "./Auth.scss";
-import axios from "axios";
 import { observer } from "mobx-react-lite";
 import { userStore } from "../../../store/user";
+import { register, login } from "../../../utils/mainApi";
 
 const Auth = observer(
   ({
@@ -25,24 +25,6 @@ const Auth = observer(
     useEffect(() => {
       checkAuth();
     }, []);
-
-    function register(email: any, password: any) {
-      return axios
-        .post("http://localhost:3000/register", {
-          email,
-          password,
-        })
-        .then((res) => res.data);
-    }
-
-    function login(email: any, password: any) {
-      return axios
-        .post("http://localhost:3000/login", {
-          email,
-          password,
-        })
-        .then((res) => res.data);
-    }
 
     function checkPath() {
       if (location.pathname === "/signup" || location.pathname === "/signin") {

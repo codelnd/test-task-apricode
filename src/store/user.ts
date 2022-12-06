@@ -1,6 +1,12 @@
+import { makeAutoObservable } from "mobx";
+
 class UserStore {
   loggedIn = false;
   currentUser = {};
+
+  constructor() {
+    makeAutoObservable(this);
+  }
 
   addUser = (user: any) => {
     this.currentUser = { ...user };

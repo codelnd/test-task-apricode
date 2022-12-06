@@ -1,4 +1,9 @@
 {
   "users": [
+    {
+      "email": "Denis@ya.ru",
+      "password": "$2a$10$3QSqogeSW6Qz5woMhEBdAuESijUyX9Knl8HFXDKUdKDdCD2q6CDsC",
+      "id": 1
+    }
   ]
 }
