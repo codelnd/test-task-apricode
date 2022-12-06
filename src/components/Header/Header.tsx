@@ -9,6 +9,7 @@ const Header = observer(() => {
   const handleLogout = () => {
     localStorage.clear();
     userStore.setLoggedIn(false);
+    userStore.currentUser = {};
     navigate("/signin");
   };
 

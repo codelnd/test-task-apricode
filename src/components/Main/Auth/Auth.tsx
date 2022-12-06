@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { IAuthProps } from "../../../models/types";
 import "./Auth.scss";
 import { observer } from "mobx-react-lite";
-import { userStore } from "../../../store/user";
 import useAuth from "../../../hooks/useAuth";
 
 const Auth = observer(
@@ -18,8 +17,6 @@ const Auth = observer(
     registerData,
     loginData,
   }: PropsWithChildren<IAuthProps>) => {
-    console.log(userStore);
-
     const { handleLogin, handleRegister } = useAuth();
 
     const handleSubmitLogin = (e: React.FormEvent) => {

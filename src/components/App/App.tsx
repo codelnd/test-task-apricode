@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./App.scss";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import TodoList from "../Main/TodoList/TodoList";
 import Login from "../Main/Auth/Login/Login";
 import Register from "../Main/Auth/Register/Register";
