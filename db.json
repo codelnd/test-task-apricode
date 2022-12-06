@@ -5,5 +5,27 @@
       "password": "$2a$10$3QSqogeSW6Qz5woMhEBdAuESijUyX9Knl8HFXDKUdKDdCD2q6CDsC",
       "id": 1
     }
+  ],
+  "todos": [
+    {
+      "id": 1,
+      "title": "Сделать задание",
+      "completed": false
+    },
+    {
+      "id": 2,
+      "title": "Приготовить завтрак",
+      "completed": false
+    },
+    {
+      "id": 3,
+      "title": "Сходить на тренировку",
+      "completed": false
+    },
+    {
+      "id": 4,
+      "title": "Помыть машину",
+      "completed": false
+    }
   ]
 }
