@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IAuthProps } from "../../../models/types";
 import "./Auth.scss";
@@ -20,6 +20,17 @@ const Auth = observer(
   }: PropsWithChildren<IAuthProps>) => {
     console.log(userStore);
     const navigate = useNavigate();
+
+    useEffect(() => {
+      checkAuth();
+    }, []);
+
+    function checkAuth() {
+      if (localStorage.getItem("currentEmail")) {
+        userStore.setLoggedIn(true);
+      }
+    }
+
     const handleSubmitLogin = (e: React.FormEvent) => {
       e.preventDefault();
       axios
@@ -29,6 +40,11 @@ const Auth = observer(
         })
         .then((res) => {
           console.log(res.data.user);
+          localStorage.setItem(
+            "currentEmail",
+            JSON.stringify(res.data.user.email)
+          );
+          userStore.setLoggedIn(true);
           navigate("/");
         });
     };
@@ -42,7 +58,9 @@ const Auth = observer(
           todos: [],
         })
         .then((res) => {
+          localStorage.setItem("currentUser", JSON.stringify(res.data.user));
           userStore.addUser(res.data.user);
+          userStore.setLoggedIn(true);
           navigate("/");
         });
     };

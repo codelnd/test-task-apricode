@@ -58,6 +58,36 @@
       "password": "$2a$10$P0317KG8Rudo3eeszpErpOsdQMnRBAnVx8xZBwNxkKPeNwlPj.Bjy",
       "todos": [],
       "id": 10
+    },
+    {
+      "email": "D2@ya.ru",
+      "password": "$2a$10$6bm3wzV/ZgJu/zkR2eZrNOWc4VDAw3YT41RVXNSwN5HJ/przCppni",
+      "todos": [],
+      "id": 11
+    },
+    {
+      "email": "D3@ya.ru",
+      "password": "$2a$10$KAOpT12ANu5reKtbI7mioey61ges/YVllQcQKfGgaHda1MJ4w3nya",
+      "todos": [],
+      "id": 12
+    },
+    {
+      "email": "Den11@ya.ru",
+      "password": "$2a$10$2Q8r6KytOV79Tw2lU5eUGuHxAvg5LpJnLaleEGEekEYlM0rFNYbTC",
+      "todos": [],
+      "id": 13
+    },
+    {
+      "email": "D@q.ru",
+      "password": "$2a$10$PwJyn8liCfvzXZfBXQVgle5.gFGiHI/6eY18kP.ZMCskd7czkaMXi",
+      "todos": [],
+      "id": 14
+    },
+    {
+      "email": "D2@q.ru",
+      "password": "$2a$10$/vXm.R0mTrYSoIxP9xLf1.A.LMRJZeToi0HLveo8nT1ui.krUl9T2",
+      "todos": [],
+      "id": 15
     }
   ]
 }
