@@ -1,10 +1,10 @@
-import React, { PropsWithChildren, useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import React, { PropsWithChildren } from "react";
+import { Link } from "react-router-dom";
 import { IAuthProps } from "../../../models/types";
 import "./Auth.scss";
 import { observer } from "mobx-react-lite";
 import { userStore } from "../../../store/user";
-import { register, login } from "../../../utils/mainApi";
+import useAuth from "../../../hooks/useAuth";
 
 const Auth = observer(
   ({
@@ -19,47 +19,8 @@ const Auth = observer(
     loginData,
   }: PropsWithChildren<IAuthProps>) => {
     console.log(userStore);
-    const navigate = useNavigate();
-    const location = useLocation();
 
-    useEffect(() => {
-      checkAuth();
-    }, []);
-
-    function checkPath() {
-      if (location.pathname === "/signup" || location.pathname === "/signin") {
-        navigate("/");
-      } else {
-        navigate(location.pathname);
-      }
-    }
-
-    function checkAuth() {
-      if (localStorage.getItem("currentUser")) {
-        userStore.setLoggedIn(true);
-        checkPath();
-      }
-    }
-
-    function handleData(res: any) {
-      localStorage.setItem("currentUser", JSON.stringify(res.user));
-      checkAuth();
-      userStore.addUser(res.user);
-      userStore.setLoggedIn(true);
-      navigate("/");
-    }
-
-    function handleLogin({ email, password }: any) {
-      login(email, password).then((res) => {
-        handleData(res);
-      });
-    }
-
-    function handleRegister({ email, password }: any) {
-      register(email, password).then((res) => {
-        handleData(res);
-      });
-    }
+    const { handleLogin, handleRegister } = useAuth();
 
     const handleSubmitLogin = (e: React.FormEvent) => {
       e.preventDefault();
