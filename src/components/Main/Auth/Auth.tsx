@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { IAuthProps } from "../../../models/types";
 import "./Auth.scss";
 import axios from "axios";
@@ -20,49 +20,73 @@ const Auth = observer(
   }: PropsWithChildren<IAuthProps>) => {
     console.log(userStore);
     const navigate = useNavigate();
+    const location = useLocation();
 
     useEffect(() => {
       checkAuth();
     }, []);
 
-    function checkAuth() {
-      if (localStorage.getItem("currentEmail")) {
-        userStore.setLoggedIn(true);
+    function register(email: any, password: any) {
+      return axios
+        .post("http://localhost:3000/register", {
+          email,
+          password,
+        })
+        .then((res) => res.data);
+    }
+
+    function login(email: any, password: any) {
+      return axios
+        .post("http://localhost:3000/login", {
+          email,
+          password,
+        })
+        .then((res) => res.data);
+    }
+
+    function checkPath() {
+      if (location.pathname === "/signup" || location.pathname === "/signin") {
+        navigate("/");
+      } else {
+        navigate(location.pathname);
       }
+    }
+
+    function checkAuth() {
+      if (localStorage.getItem("currentUser")) {
+        userStore.setLoggedIn(true);
+        checkPath();
+      }
+    }
+
+    function handleData(res: any) {
+      localStorage.setItem("currentUser", JSON.stringify(res.user));
+      checkAuth();
+      userStore.addUser(res.user);
+      userStore.setLoggedIn(true);
+      navigate("/");
+    }
+
+    function handleLogin({ email, password }: any) {
+      login(email, password).then((res) => {
+        handleData(res);
+      });
+    }
+
+    function handleRegister({ email, password }: any) {
+      register(email, password).then((res) => {
+        handleData(res);
+      });
     }
 
     const handleSubmitLogin = (e: React.FormEvent) => {
       e.preventDefault();
-      axios
-        .post("http://localhost:3000/login", {
-          email: loginData.email,
-          password: loginData.password,
-        })
-        .then((res) => {
-          console.log(res.data.user);
-          localStorage.setItem(
-            "currentEmail",
-            JSON.stringify(res.data.user.email)
-          );
-          userStore.setLoggedIn(true);
-          navigate("/");
-        });
+      handleLogin(loginData);
     };
 
     const handleSubmitRegister = (e: React.FormEvent) => {
       e.preventDefault();
-      axios
-        .post("http://localhost:3000/register", {
-          email: registerData.email,
-          password: registerData.password,
-          todos: [],
-        })
-        .then((res) => {
-          localStorage.setItem("currentUser", JSON.stringify(res.data.user));
-          userStore.addUser(res.data.user);
-          userStore.setLoggedIn(true);
-          navigate("/");
-        });
+      handleRegister(registerData);
     };
 
     return (
