@@ -5,7 +5,9 @@ import "./TodoList.scss";
 
 const TodoList = observer(() => {
     useEffect(() => {
-        todoStore.fetchTodos();
+        if (!todoStore.inputValue) {
+            todoStore.fetchTodos();
+        }
     }, [todoStore.inputValue]);
 
 
