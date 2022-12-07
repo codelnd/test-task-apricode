@@ -39,6 +39,10 @@
   font-size: $paragraphFontSize;
 }
 
+.todo__label_completed {
+  text-decoration: line-through;
+}
+
 
 .todo__remove {
   @include button-style;

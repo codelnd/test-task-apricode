@@ -5,6 +5,8 @@ import "./TodoList.scss";
 
 const TodoList = observer(() => {
 
+    const titleClasses = ["todo__label"]
+
     useEffect(() => {
         todoStore.fetchTodos();
     }, []);
@@ -33,26 +35,33 @@ const TodoList = observer(() => {
                 <button>Добавить</button>
             </form>
             <ul className="todos">
-                {todoStore.todos.map((todo: any, i) => (
-                    <li className="todo" key={i}>
-                        <label className="todo__label">
-                            {todo.title}
-                            <input
-                                className="todo__status"
-                                type="checkbox"
-                                checked={todo.completed}
-                                onChange={() => console.log(todo)}
-                            />
-                        </label>
-                        <button
-                            className="todo__remove"
-                            onClick={() => todoStore.removeTodo(todo)}
-                            type="button"
-                        >
-                            Удалить
-                        </button>
-                    </li>
-                ))}
+                {todoStore.todos.map((todo: any, i) => {
+
+                    if (todo.completed) {
+                        titleClasses.push('todo__label_completed')
+                    }
+
+                    return (
+                        <li className="todo" key={i}>
+                            <label className={titleClasses.join(' ')}>
+                                {todo.title}
+                                <input
+                                    className="todo__status"
+                                    type="checkbox"
+                                    checked={todo.completed}
+                                    onChange={() => console.log(todo)}
+                                />
+                            </label>
+                            <button
+                                className="todo__remove"
+                                onClick={() => todoStore.removeTodo(todo)}
+                                type="button"
+                            >
+                                Удалить
+                            </button>
+                        </li>
+                    )
+                })}
             </ul>
         </section>
     );

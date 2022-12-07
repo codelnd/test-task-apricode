@@ -40,16 +40,12 @@ class TodoStore {
     removeTodo = (todo: any) => {
         return (
             axios.delete(`http://localhost:3000/todos/${todo.id}`)
-                .then(res => {
+                .then(() => {
                     this.todos = this.todos.filter((el: any) => el.id !== todo.id)
                 })
         )
     }
 
-    // removeTodo = (id: any) => {
-    //     this.todos = this.todos.filter((todo: any) => todo.id !== id);
-    // };
-    //
     // completeTodo = (id: any) => {
     //     // @ts-ignore
     //     this.todos = this.todos.map((todo: any) =>
