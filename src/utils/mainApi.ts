@@ -18,14 +18,4 @@ function login(email: any, password: any) {
     .then((res) => res.data);
 }
 
-function addTodo(title: any) {
-  return (
-    axios.post("http://localhost:3000/todos"),
-    {
-      title,
-      completed: false,
-    }
-  );
-}
-
-export { register, login, addTodo };
+export { register, login };

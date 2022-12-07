@@ -14,9 +14,10 @@ const TodoList = observer(() => {
         if (!todoStore.inputValue) {
             return
         } else {
-            console.log(todoStore.inputValue);
+            todoStore.setTodo(todoStore.inputValue)
+            todoStore.addTodo(todoStore.todo)
         }
-        todoStore.inputValue = ""
+        todoStore.setInputValue('')
     }
 
     return (
@@ -26,7 +27,7 @@ const TodoList = observer(() => {
                     type="text"
                     placeholder="Добавьте задачу"
                     value={todoStore.inputValue}
-                    onChange={(e) => todoStore.addTodoValue(e.target.value)}
+                    onChange={(e) => todoStore.setInputValue(e.target.value)}
                 />
                 <button>Добавить</button>
             </form>
