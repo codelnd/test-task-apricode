@@ -25,12 +25,10 @@ class TodoStore {
   };
 
   fetchTodos = () => {
-    fetch("http://localhost:3000/todos")
-      .then((res) => res.json())
-      .then((json) => {
-        // @ts-ignore
-        this.todos = [...this.todos, ...json];
-      });
+    axios("http://localhost:3000/todos").then((res) => {
+      // @ts-ignore
+      this.todos = [...this.todos, ...res.data];
+    });
   };
 }
 
