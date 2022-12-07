@@ -1,17 +1,11 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Navigation.scss";
 import { observer } from "mobx-react-lite";
 import { userStore } from "../../../store/user";
+import useAuth from "../../../hooks/useAuth";
 
 const Navigation = observer(() => {
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    localStorage.clear();
-    userStore.setLoggedIn(false);
-    userStore.currentUser = {};
-    navigate("/signin");
-  };
+  const { handleLogout } = useAuth();
 
   return userStore.loggedIn ? (
     <nav className="nav nav__outside">

@@ -46,9 +46,17 @@ function useAuth() {
     });
   }
 
+  function handleLogout() {
+    localStorage.clear();
+    userStore.setLoggedIn(false);
+    userStore.currentUser = {};
+    navigate("/signin");
+  }
+
   return {
     handleLogin,
     handleRegister,
+    handleLogout,
   };
 }
 
