@@ -6,7 +6,7 @@ import "./TodoList.scss";
 const TodoList = observer(() => {
     useEffect(() => {
         todoStore.fetchTodos();
-    }, []);
+    }, [todoStore.inputValue]);
 
 
     const handleAddTodo = (e: React.FormEvent) => {
@@ -32,8 +32,8 @@ const TodoList = observer(() => {
                 <button>Добавить</button>
             </form>
             <ul className="todos">
-                {todoStore.todos.map((todo: any) => (
-                    <li className="todo" key={todo.id}>
+                {todoStore.todos.map((todo: any, i) => (
+                    <li className="todo" key={i}>
                         <label className="todo__label">
                             {todo.title}
                             <input
