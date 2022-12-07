@@ -1,28 +1,17 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { userStore } from "../../store/user";
-import { observer } from "mobx-react-lite";
+import Logo from "./Logo/Logo";
+import Navigation from "./Navigation/Navigation";
+import "./Header.scss";
 
-const Header = observer(() => {
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    localStorage.clear();
-    userStore.setLoggedIn(false);
-    userStore.currentUser = {};
-    navigate("/signin");
-  };
-
+const Header = () => {
   return (
-    <header>
-      <Link to="/">Главная</Link>
-      <Link to="/signup">Регистрация</Link>
-      <Link to="/signin">Войти</Link>
-      <Link onClick={handleLogout} to="/signin">
-        Выйти
-      </Link>
+    <header className="header">
+      <div className="header__wrapper">
+        <Logo />
+        <Navigation />
+      </div>
     </header>
   );
-});
+};
 
 export default Header;

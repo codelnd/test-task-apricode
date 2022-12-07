@@ -8,4 +8,4 @@ class TodoStore {
   }
 }
 
-export const userStore = new TodoStore();
+export const todoStore = new TodoStore();
