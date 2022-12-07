@@ -29,9 +29,12 @@ class TodoStore {
         this.todo = {...this.todo, title: title, completed: false}
     }
 
-    addTodo = (obj: any) => {
-        return axios.post("http://localhost:3000/todos", obj)
-    }
+    addTodo = (obj:any) => {
+        return (
+            axios.post("http://localhost:3000/todos", obj)
+                // @ts-ignore
+                .then(res => this.todos = [...this.todos, res.data])
+        )}
 
     removeTodo = (id: any) => {
         this.todos = this.todos.filter((todo: any) => todo.id !== id);

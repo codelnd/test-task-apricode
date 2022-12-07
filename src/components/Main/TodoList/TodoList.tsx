@@ -4,11 +4,10 @@ import {todoStore} from "../../../store/todo";
 import "./TodoList.scss";
 
 const TodoList = observer(() => {
+    
     useEffect(() => {
-        if (!todoStore.inputValue) {
-            todoStore.fetchTodos();
-        }
-    }, [todoStore.inputValue]);
+        todoStore.fetchTodos();
+    }, []);
 
 
     const handleAddTodo = (e: React.FormEvent) => {
