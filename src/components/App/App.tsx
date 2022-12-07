@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import "./App.scss";
 import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
 import { Route, Routes } from "react-router-dom";
 import TodoList from "../Main/TodoList/TodoList";
 import Login from "../Main/Auth/Login/Login";
@@ -35,7 +34,6 @@ const App = observer(() => {
           <Route path="/signup" element={<Register />} />
         </Routes>
       </Main>
-      <Footer />
     </div>
   );
 });

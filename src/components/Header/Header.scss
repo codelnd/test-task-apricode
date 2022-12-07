@@ -11,15 +11,5 @@
   justify-content: space-between;
 }
 
-@media screen and (max-width: 768px) {
-  .header__wrapper {
-    padding: 18px 30px;
-  }
-}
 
-@media screen and (max-width: 480px) {
-  .header__wrapper {
-    padding: 18px 14px;
-  }
-}
 
