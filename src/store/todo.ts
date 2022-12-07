@@ -3,14 +3,14 @@ import axios from "axios";
 
 class TodoStore {
   todos = [];
+  inputValue = "";
 
   constructor() {
     makeAutoObservable(this);
   }
 
-  addTodo = (todo: any) => {
-    // @ts-ignore
-    this.todos.push(todo);
+  addTodoValue = (title: any) => {
+    this.inputValue = title;
   };
 
   removeTodo = (id: any) => {

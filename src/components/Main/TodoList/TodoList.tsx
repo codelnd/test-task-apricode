@@ -8,8 +8,16 @@ const TodoList = observer(() => {
     todoStore.fetchTodos();
   }, []);
 
+  console.log(todoStore.inputValue);
+
   return (
     <section className="todo-list">
+      <input
+        type="text"
+        value={todoStore.inputValue}
+        onChange={(e) => todoStore.addTodoValue(e.target.value)}
+      />
+      <button>Добавить</button>
       <ul className="todos">
         {todoStore.todos.map((todo: any) => (
           <li className="todo" key={todo.id}>
