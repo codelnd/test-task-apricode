@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { userStore } from "../store/user";
 import { useLocation, useNavigate } from "react-router-dom";
 import { login, register } from "../utils/mainApi";
+import { todoStore } from "../store/todo";
 
 function useAuth() {
   const navigate = useNavigate();
@@ -50,6 +51,7 @@ function useAuth() {
     localStorage.clear();
     userStore.setLoggedIn(false);
     userStore.currentUser = {};
+    todoStore.todos = [];
     navigate("/signin");
   }
 

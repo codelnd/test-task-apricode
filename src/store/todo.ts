@@ -1,4 +1,5 @@
 import { makeAutoObservable } from "mobx";
+import axios from "axios";
 
 class TodoStore {
   todos = [];
@@ -13,13 +14,23 @@ class TodoStore {
   };
 
   removeTodo = (id: any) => {
-    this.todos.filter((todo: any) => todo.id !== id);
+    this.todos = this.todos.filter((todo: any) => todo.id !== id);
   };
 
   completeTodo = (id: any) => {
-    this.todos.map((todo: any) =>
-      todo.id === id ? { complete: !todo.complete } : todo
+    // @ts-ignore
+    this.todos = this.todos.map((todo: any) =>
+      todo.id === id ? { ...todo, completed: !todo.completed } : todo
     );
+  };
+
+  fetchTodos = () => {
+    fetch("http://localhost:3000/todos")
+      .then((res) => res.json())
+      .then((json) => {
+        // @ts-ignore
+        this.todos = [...this.todos, ...json];
+      });
   };
 }
 
