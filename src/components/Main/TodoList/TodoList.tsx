@@ -4,7 +4,7 @@ import {todoStore} from "../../../store/todo";
 import "./TodoList.scss";
 
 const TodoList = observer(() => {
-    
+
     useEffect(() => {
         todoStore.fetchTodos();
     }, []);
@@ -41,12 +41,12 @@ const TodoList = observer(() => {
                                 className="todo__status"
                                 type="checkbox"
                                 checked={todo.completed}
-                                onChange={() => todoStore.completeTodo(todo.id)}
+                                onChange={() => console.log(todo)}
                             />
                         </label>
                         <button
                             className="todo__remove"
-                            onClick={() => todoStore.removeTodo(todo.id)}
+                            onClick={() => todoStore.removeTodo(todo)}
                             type="button"
                         >
                             Удалить
