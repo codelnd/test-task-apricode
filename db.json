@@ -15,12 +15,12 @@
     {
       "id": 2,
       "title": "Приготовить завтрак",
-      "completed": false
+      "completed": true
     },
     {
       "id": 3,
       "title": "Сходить на тренировку",
-      "completed": false
+      "completed": true
     },
     {
       "id": 4,

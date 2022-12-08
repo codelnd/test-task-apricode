@@ -21,6 +21,13 @@ class TodoStore {
     });
   };
 
+  fetchCompletedTodos = () => {
+    axios.get("http://localhost:3000/todos?completed=true").then((res) => {
+      // @ts-ignore
+      this.todos = [...this.todos, ...res.data];
+    });
+  };
+
   setInputValue = (title: any) => {
     this.inputValue = title;
   };
