@@ -49,7 +49,7 @@
   color: $buttonTextColor;
 }
 
-@media screen and (max-width: $mobileBigMediaQuery) {
+@media screen and (max-width: $mobileMediumMediaQuery) {
   .nav__link_type_register {
     font-size: $xSmallFontSize;
   }

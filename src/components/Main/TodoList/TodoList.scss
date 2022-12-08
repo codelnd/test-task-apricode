@@ -2,7 +2,7 @@
 @import "../../../sass/abstracts/variables";
 
 .todo-list {
-  max-width: 1280px;
+  max-width: $container;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -36,11 +36,11 @@
 }
 
 .todo__status {
-  cursor: pointer;
+  cursor: $cursor;
 }
 
 .todo__label {
-  cursor: pointer;
+  cursor: $cursor;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -59,10 +59,10 @@
   @include button-style;
   width: 76px;
   height: 32px;
-  font-weight: 500;
-  font-size: 12px;
+  font-weight: $fontMedium;
+  font-size: $smallFontSize;
   line-height: 16px;
   border-radius: 3px;
-  background-color: #000;
-  color: #FFF;
+  background-color: $backgroundColorB;
+  color: $backgroundColor;
 }

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { observer } from "mobx-react-lite";
 import { todoStore } from "../../../store/todo";
 import "./TodoList.scss";
+import { ITodo } from "../../../models/types";
 
 const TodoList = observer(() => {
   useEffect(() => {
@@ -40,7 +41,7 @@ const TodoList = observer(() => {
         </button>
       </div>
       <ul className="todos">
-        {todoStore.todos.map((todo: any, i) => {
+        {todoStore.todos.map((todo: ITodo, i) => {
           const titleClasses = ["todo__label"];
           if (todo.completed) {
             titleClasses.push("todo__label_completed");

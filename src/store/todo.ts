@@ -1,5 +1,6 @@
 import { makeAutoObservable } from "mobx";
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
+import { ITodo } from "../models/types";
 
 class TodoStore {
   todos = [];
@@ -16,31 +17,37 @@ class TodoStore {
   }
 
   fetchAllTodos = () => {
-    axios.get("http://localhost:3000/todos").then((res) => {
-      // @ts-ignore
-      this.todos = [...this.todos, ...res.data];
-    });
+    axios
+      .get("http://localhost:3000/todos")
+      .then((res: AxiosResponse<ITodo[]>) => {
+        // @ts-ignore
+        this.todos = [...this.todos, ...res.data];
+      });
   };
 
   fetchCompletedTodos = () => {
-    axios.get("http://localhost:3000/todos?completed=true").then((res) => {
-      // @ts-ignore
-      this.todos = [...this.todos, ...res.data];
-    });
+    axios
+      .get("http://localhost:3000/todos?completed=true")
+      .then((res: AxiosResponse<ITodo[]>) => {
+        // @ts-ignore
+        this.todos = [...this.todos, ...res.data];
+      });
   };
 
   fetchUncompletedTodos = () => {
-    axios.get("http://localhost:3000/todos?completed=false").then((res) => {
-      // @ts-ignore
-      this.todos = [...this.todos, ...res.data];
-    });
+    axios
+      .get("http://localhost:3000/todos?completed=false")
+      .then((res: AxiosResponse<ITodo[]>) => {
+        // @ts-ignore
+        this.todos = [...this.todos, ...res.data];
+      });
   };
 
-  setInputValue = (title: any) => {
+  setInputValue = (title: string) => {
     this.inputValue = title;
   };
 
-  setTodo = (title: any) => {
+  setTodo = (title: string) => {
     this.todo = { ...this.todo, title: title, completed: false };
   };
 
@@ -48,26 +55,26 @@ class TodoStore {
     this.popupIsOpen = !this.popupIsOpen;
   };
 
-  setPopup = (boolean: boolean) => {
+  setPopupOpened = (boolean: boolean) => {
     this.popupIsOpen = boolean;
   };
 
-  addTodo = (obj: any) => {
+  addTodo = (todo: ITodo) => {
     return (
       axios
-        .post("http://localhost:3000/todos", obj)
+        .post("http://localhost:3000/todos", todo)
         // @ts-ignore
         .then((res) => (this.todos = [...this.todos, res.data]))
     );
   };
 
-  removeTodo = (todo: any) => {
+  removeTodo = (todo: ITodo) => {
     return axios.delete(`http://localhost:3000/todos/${todo.id}`).then(() => {
-      this.todos = this.todos.filter((el: any) => el.id !== todo.id);
+      this.todos = this.todos.filter((el: ITodo) => el.id !== todo.id);
     });
   };
 
-  completeTodo = (todo: any) => {
+  completeTodo = (todo: ITodo) => {
     return axios
       .put(`http://localhost:3000/todos/${todo.id}`, {
         ...todo,
@@ -75,7 +82,7 @@ class TodoStore {
       })
       .then((res) => {
         // @ts-ignore
-        this.todos = this.todos.map((el: any) => {
+        this.todos = this.todos.map((el: ITodo) => {
           if (el.id !== todo.id) {
             return el;
           } else {

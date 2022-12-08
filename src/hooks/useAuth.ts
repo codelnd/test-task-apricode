@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { userStore } from "../store/user";
 import { useLocation, useNavigate } from "react-router-dom";
-import { login, register } from "../utils/mainApi";
 import { todoStore } from "../store/todo";
+import { AxiosResponse } from "axios";
+import { IAuthRequest, IAuthResponse } from "../models/types";
 
 function useAuth() {
   const navigate = useNavigate();
@@ -35,16 +36,20 @@ function useAuth() {
     navigate("/");
   }
 
-  function handleLogin({ email, password }: any) {
-    login(email, password).then((res) => {
-      handleData(res);
-    });
+  function handleLogin({ email, password }: IAuthRequest) {
+    userStore
+      .login(email, password)
+      .then((res: AxiosResponse<IAuthResponse>) => {
+        handleData(res);
+      });
   }
 
-  function handleRegister({ email, password }: any) {
-    register(email, password).then((res) => {
-      handleData(res);
-    });
+  function handleRegister({ email, password }: IAuthRequest) {
+    userStore
+      .register(email, password)
+      .then((res: AxiosResponse<IAuthResponse>) => {
+        handleData(res);
+      });
   }
 
   function handleLogout() {

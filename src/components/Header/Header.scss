@@ -1,5 +1,7 @@
+@import "../../sass/abstracts/variables";
+
 .header {
-  max-width: 1280px;
+  max-width: $container;
   margin: 0 auto;
 }
 

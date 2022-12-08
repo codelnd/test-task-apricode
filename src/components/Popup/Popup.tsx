@@ -15,24 +15,26 @@ const Popup = observer(() => {
       todoStore.addTodo(todoStore.todo);
     }
     todoStore.setInputValue("");
-    todoStore.setPopup(false);
+    todoStore.setPopupOpened(false);
   };
 
   return (
     <section
-      onMouseDown={() => todoStore.setPopup(false)}
+      onMouseDown={() => todoStore.setPopupOpened(false)}
       className={`popup ${todoStore.popupIsOpen ? "popup_opened" : ""}`}
     >
       <div
         className="popup__container"
-        onMouseDown={(e) => e.stopPropagation()}
+        onMouseDown={(e: React.MouseEvent<HTMLDivElement>) =>
+          e.stopPropagation()
+        }
       >
         <button className="button popup__close" type="button">
           <img
             className="popup__close-img"
             src={closeBtn}
             alt="закрыть попап"
-            onMouseDown={() => todoStore.setPopup(false)}
+            onMouseDown={() => todoStore.setPopupOpened(false)}
           />
         </button>
         <h2 className="popup__title">Новая задача</h2>
@@ -42,7 +44,9 @@ const Popup = observer(() => {
             type="text"
             placeholder="Добавьте задачу"
             value={todoStore.inputValue}
-            onChange={(e) => todoStore.setInputValue(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              todoStore.setInputValue(e.target.value)
+            }
           />
           <button
             className={`popup__button ${

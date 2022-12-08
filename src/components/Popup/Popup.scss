@@ -1,3 +1,5 @@
+@import "../../sass/abstracts/variables";
+
 .popup {
   position: fixed;
   background-color: rgba(0, 0, 0, 0.5);
@@ -21,7 +23,7 @@
 .popup__container {
   position: relative;
   width: 430px;
-  background-color: #fff;
+  background-color: $backgroundColor;
   border-radius: 10px;
   padding: 34px 36px 37px 36px;
   box-sizing: border-box;
@@ -39,9 +41,9 @@
   width: 100%;
   padding: 0 0 9px 0;
   font-weight: 400;
-  font-size: 14px;
+  font-size: $paragraphFontSize;
   line-height: 1.2;
-  color: #000;
+  color: $textColor;
   outline: none;
 }
 
@@ -55,8 +57,8 @@
 
 .popup__title {
   margin: 0;
-  font-weight: 900;
-  font-size: 24px;
+  font-weight: $fontBold;
+  font-size: $titleFontSize;
   line-height: 1.2;
 }
 
@@ -64,17 +66,17 @@
   display: block;
   border: none;
   box-sizing: border-box;
-  background: #000 none;
-  font-weight: 400;
-  font-size: 18px;
+  background: $backgroundColorB none;
+  font-weight: $fontLight;
+  font-size: $miniTitleFontSize;
   line-height: 1.22;
-  color: #fff;
+  color: $buttonTextColor;
   width: 100%;
   height: 50px;
   margin: 48px auto 0;
   border-radius: 2px;
   transition: opacity 0.2s ease-in;
-  cursor: pointer;
+  cursor: $cursor;
 }
 
 .popup__button:hover {
@@ -82,9 +84,9 @@
 }
 
 .popup__button_disabled {
-  border: 1px solid #000000;
-  background-color: #fff;
-  color: #000;
+  border: 1px solid $backgroundColorB;
+  background-color: $backgroundColor;
+  color: $textColor;
   opacity: 0.2;
   cursor: default;
 }
@@ -94,7 +96,7 @@
 }
 
 .popup__close {
-  cursor: pointer;
+  cursor: $cursor;
   background: transparent;
   border: none;
   padding: 0;
@@ -111,27 +113,27 @@
 }
 
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: $mobileBigMediaQuery) {
   .popup__container {
     width: 282px;
     padding: 25px 22px 25px 22px;
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: $mobileBigMediaQuery) {
   .popup__form {
     margin-top: 75px;
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: $mobileBigMediaQuery) {
   .popup__title {
-    font-size: 18px;
+    font-size: $miniTitleFontSize;
     line-height: 1.22;
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: $mobileBigMediaQuery) {
   .popup__button {
     height: 46px;
     margin-top: 45px;
@@ -140,7 +142,7 @@
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: $mobileBigMediaQuery) {
   .popup__close {
     top: -36px;
     right: 0;
