@@ -9,12 +9,13 @@ class TodoStore {
     title: "",
     completed: false,
   };
+  popupIsOpen = false;
 
   constructor() {
     makeAutoObservable(this);
   }
 
-  fetchTodos = () => {
+  fetchAllTodos = () => {
     axios.get("http://localhost:3000/todos").then((res) => {
       // @ts-ignore
       this.todos = [...this.todos, ...res.data];
@@ -28,12 +29,27 @@ class TodoStore {
     });
   };
 
+  fetchUncompletedTodos = () => {
+    axios.get("http://localhost:3000/todos?completed=false").then((res) => {
+      // @ts-ignore
+      this.todos = [...this.todos, ...res.data];
+    });
+  };
+
   setInputValue = (title: any) => {
     this.inputValue = title;
   };
 
   setTodo = (title: any) => {
     this.todo = { ...this.todo, title: title, completed: false };
+  };
+
+  togglePopup = () => {
+    this.popupIsOpen = !this.popupIsOpen;
+  };
+
+  setPopup = (boolean: boolean) => {
+    this.popupIsOpen = boolean;
   };
 
   addTodo = (obj: any) => {
@@ -67,6 +83,21 @@ class TodoStore {
           }
         });
       });
+  };
+
+  handleAllTodos = () => {
+    this.todos = [];
+    this.fetchAllTodos();
+  };
+
+  handleCompleted = () => {
+    this.todos = [];
+    this.fetchCompletedTodos();
+  };
+
+  handleUncompleted = () => {
+    this.todos = [];
+    this.fetchUncompletedTodos();
   };
 }
 

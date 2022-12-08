@@ -4,11 +4,17 @@
 .todo-list {
   max-width: 1280px;
   margin: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .todos {
   @include list-style;
   margin-top: 40px;
+}
+
+.buttons__wrp {
+  margin-top: 50px;
 }
 
 .todo {

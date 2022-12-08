@@ -1,6 +1,7 @@
 @import "normalize.css";
 @import "sass/base/fonts";
 @import "sass/abstracts/variables";
+@import "sass/abstracts/mixins";
 
 .page {
   margin: 0 auto;
@@ -13,4 +14,17 @@
   -moz-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
   min-height: 100vh;
+}
+
+.button__todo {
+  @include button-style;
+  min-width: 76px;
+  min-height: 32px;
+  padding: 10px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  border-radius: 3px;
+  background-color: #000;
+  color: #FFF;
 }
