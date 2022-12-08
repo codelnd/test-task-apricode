@@ -50,15 +50,17 @@ class TodoStore {
         ...todo,
         completed: !todo.completed,
       })
-      .then((res) => console.log(res.data));
+      .then((res) => {
+        // @ts-ignore
+        this.todos = this.todos.map((el: any) => {
+          if (el.id !== todo.id) {
+            return el;
+          } else {
+            return res.data;
+          }
+        });
+      });
   };
-
-  // completeTodo = (id: any) => {
-  //   // @ts-ignore
-  //   this.todos = this.todos.map((todo: any) =>
-  //     todo.id === id ? { ...todo, completed: !todo.completed } : todo
-  //   );
-  // };
 }
 
 export const todoStore = new TodoStore();
