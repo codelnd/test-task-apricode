@@ -1,21 +1,28 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
+import { IAuthResponse } from "../models/types";
 
-function register(email: any, password: any) {
+function register(
+  email: string,
+  password: string
+): Promise<AxiosResponse<IAuthResponse>> {
   return axios
     .post("http://localhost:3000/register", {
       email,
       password,
     })
-    .then((res) => res.data);
+    .then((res: AxiosResponse) => res.data);
 }
 
-function login(email: any, password: any) {
+function login(
+  email: string,
+  password: string
+): Promise<AxiosResponse<IAuthResponse>> {
   return axios
     .post("http://localhost:3000/login", {
       email,
       password,
     })
-    .then((res) => res.data);
+    .then((res: AxiosResponse) => res.data);
 }
 
 export { register, login };

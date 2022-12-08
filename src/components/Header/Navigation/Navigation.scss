@@ -1,3 +1,6 @@
+@import "../../../sass/abstracts/variables";
+@import "../../../sass/abstracts/mixins";
+
 .nav {
   min-width: calc(100% - 38px);
   display: flex;
@@ -7,26 +10,25 @@
 }
 
 .nav__link {
-  padding: 0;
-  text-decoration: none;
+  @include link-reset;
   transition: all .2s ease-in;
-  color: #000;
+  color: $textColor;
 }
 
 .nav__link:hover {
-  cursor: pointer;
+  cursor: $cursor;
 }
 
 .nav__link.active {
-  font-weight: 500;
-  color: #000;
+  font-weight: $fontMedium;
+  color: $textColor;
 }
 
 .nav__link_type_register {
-  font-weight: 500;
-  font-size: 12px;
+  font-weight: $fontMedium;
+  font-size: $smallFontSize;
   line-height: 16px;
-  color: #000;
+  color: $textColor;
 }
 
 .nav__link_type_register:hover {
@@ -39,17 +41,16 @@
   align-items: center;
   width: 76px;
   height: 32px;
-  font-weight: 500;
-  font-size: 12px;
+  font-weight: $fontMedium;
+  font-size: $smallFontSize;
   line-height: 16px;
   border-radius: 3px;
-  background-color: #000;
-  color: #FFF;
+  background-color: $backgroundColorB;
+  color: $buttonTextColor;
 }
 
-
-@media screen and (max-width: 480px) {
+@media screen and (max-width: $mobileBigMediaQuery) {
   .nav__link_type_register {
-    font-size: 10px;
+    font-size: $xSmallFontSize;
   }
 }

@@ -10,21 +10,33 @@ const TodoList = observer(() => {
 
   return (
     <section className="todo-list">
-      {/*<button type="button" onClick={todoStore.handleAllTodos}>*/}
-      {/*  Все*/}
-      {/*</button>*/}
-      {/*<button type="button" onClick={todoStore.handleCompleted}>*/}
-      {/*  Завершенные*/}
-      {/*</button>*/}
-      {/*<button type="button" onClick={todoStore.handleUncompleted}>*/}
-      {/*  Незавершенные*/}
-      {/*</button>*/}
       <div className="buttons__wrp">
         <button
           onClick={() => todoStore.togglePopup()}
           className="button__todo"
         >
           Добавить задачу
+        </button>
+        <button
+          className="button__todo"
+          type="button"
+          onClick={todoStore.handleAllTodos}
+        >
+          Все
+        </button>
+        <button
+          className="button__todo"
+          type="button"
+          onClick={todoStore.handleCompleted}
+        >
+          Завершенные
+        </button>
+        <button
+          className="button__todo"
+          type="button"
+          onClick={todoStore.handleUncompleted}
+        >
+          Незавершенные
         </button>
       </div>
       <ul className="todos">

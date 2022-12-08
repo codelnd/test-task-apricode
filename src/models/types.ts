@@ -20,3 +20,13 @@ export interface IInputProps {
   onChange?: any;
   value?: any;
 }
+
+export interface IUser {
+  email: string;
+  id: number;
+}
+
+export interface IAuthResponse {
+  accessToken: string;
+  user: IUser;
+}

@@ -1,10 +1,12 @@
+@import "../../../sass/abstracts/variables";
+
 .logo-link {
-    width: 38px;
-    height: 38px;
-    cursor: pointer;
+  width: 38px;
+  height: 38px;
+  cursor: $cursor;
 }
 
 .logo {
-    display: block;
-    z-index: 2;
+  display: block;
+  z-index: 2;
 }

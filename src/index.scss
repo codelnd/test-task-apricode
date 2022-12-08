@@ -18,9 +18,10 @@
 
 .button__todo {
   @include button-style;
-  min-width: 76px;
-  min-height: 32px;
-  padding: 10px;
+  width: 100px;
+  height: 40px;
+  padding: 5px;
+  box-sizing: border-box;
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;

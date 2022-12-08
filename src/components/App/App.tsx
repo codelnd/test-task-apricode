@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import "./App.scss";
 import Header from "../Header/Header";
 import { Route, Routes } from "react-router-dom";
 import TodoList from "../Main/TodoList/TodoList";
