@@ -24,6 +24,7 @@ npm install
 
 ## CLI:
 ```
+json-server db.json -m ./node_modules/json-server-auth // Запуск JSON сервера
 npm run start // Запуск dev сервера
 npm run build // Сборка проекта
 ```
